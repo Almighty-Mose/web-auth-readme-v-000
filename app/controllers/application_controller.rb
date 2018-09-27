@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   private
+  
+    def authenticate_user
+      client_id = ENV['FOURSQUARE_CLIENT_ID']
+      redirect_uri = CGI.escape("https://localhost:3000/auth")
+      foursquare_url = 
+    end
+    
     def logged_in?
       !!session[:token]
     end
